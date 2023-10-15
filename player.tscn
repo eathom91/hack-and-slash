@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqxaa7e6alipw"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_skdc2"]
+[ext_resource type="Texture2D" uid="uid://6gnat1qbp0nd" path="res://art/characters/green_character.png" id="2_20tr0"]
+[ext_resource type="Texture2D" uid="uid://d1emre0rmuinp" path="res://art/characters/green_hand.png" id="3_tan4x"]
+[ext_resource type="Texture2D" uid="uid://dotr8w2jb5cur" path="res://art/weapons/weapon_longsword.png" id="4_4tx3f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uvur"]
+radius = 21.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(12, 13)
+scale = Vector2(2, 2)
+script = ExtResource("1_skdc2")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_6uvur")
+
+[node name="HandWithWeapon" type="Node2D" parent="."]
+position = Vector2(-2, -10)
+
+[node name="Hand" type="Sprite2D" parent="HandWithWeapon"]
+z_index = 1
+position = Vector2(17, 35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tan4x")
+
+[node name="Weapon" type="Sprite2D" parent="HandWithWeapon"]
+position = Vector2(39, 35.5)
+rotation = 1.5708
+texture = ExtResource("4_4tx3f")
+
+[node name="Hand" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(16, -23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tan4x")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_20tr0")
